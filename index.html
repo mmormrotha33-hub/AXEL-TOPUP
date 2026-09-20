@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAVIN STORE - Free Fire Top Up</title>
+    <!-- ប្រើ Tailwind CSS តាមរយៈ CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome សម្រាប់ Icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700&display=swap');
+        body {
+            font-family: 'Hanuman', sans-serif;
+            background-color: #1a1e29;
+            color: white;
+        }
+        .bg-header { background-color: #0fb896; }
+        .bg-card { background-color: #161a29; border: 1px solid #2a3143; }
+        .border-active { border-color: #0fb896; box-shadow: 0 0 8px rgba(15, 184, 150, 0.4); }
+    </style>
+</head>
+<body class="pb-28">
+
+    <!-- ផ្នែក HEADER -->
+    <header class="bg-header px-4 py-3 flex justify-between items-center sticky top-0 z-50 shadow-md">
+        <h1 class="text-2xl font-black italic text-white tracking-widest drop-shadow-md">NAVIN STORE</h1>
+        <div class="flex items-center gap-2">
+            <button onclick="goHome()" class="bg-white text-gray-800 w-8 h-8 rounded text-sm flex items-center justify-center cursor-pointer"><i class="fas fa-home"></i></button>
+            <button class="bg-white text-gray-800 px-3 py-1 font-bold rounded text-sm">LOGIN</button>
+        </div>
+    </header>
+
+    <!-- ផ្នែក HOMEPAGE (ទំព័រដើមបង្ហាញហ្គេម) -->
+    <main id="homeView" class="p-3 space-y-4">
+        <!-- Banner -->
+        <div class="w-full h-45 bg-gray-700 rounded-lg overflow-hidden relative shadow-lg">
+            <img src="c:\Users\mmorm\Downloads\Telegram Desktop\photo_2026-09-18_14-16-57.jpg" class="object-cover w-full h-full opacity-80" alt="Welcome Banner">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0fb896] to-transparent opacity-60"></div>
+            <div class="absolute bottom-3 left-3 text-white font-bold italic text-xl drop-shadow-lg">WELCOME TO NAVIN STORE</div>
+        </div>
+
+        <h2 class="text-sm font-bold text-gray-300">🎮 ជ្រើសរើសហ្គេមសម្រាប់TOPUP</h2>
+        
+        <!-- Game Grid List -->
+        <div class="grid grid-cols-2 gap-3">
+            <div onclick="openOrderPage('Free Fire')" class="bg-card rounded-xl p-3 flex flex-col items-center text-center cursor-pointer hover:border-[#0fb896] transition-all border">
+                <img src="c:\Users\mmorm\Downloads\download.jpeg" class="w-25 h-25 rounded-lg object-cover mb-2 shadow" alt="Free Fire">
+                <span class="text-xs font-bold text-white">Free Fire</span>
+                <span class="text-[10px] text-[#0fb896] mt-1 font-semibold">Automatic 24/7</span>
+            </div>
+
+            <div onclick="alert('ហ្គេមនេះនឹងដាក់ដំណើរការឆាប់ៗខាងមុខ!')" class="bg-card rounded-xl p-3 flex flex-col items-center text-center cursor-pointer hover:border-gray-500 transition-all border opacity-70">
+                <img src="" class="w-25 h-25 rounded-lg object-contain mb-2 p-1 bg-gray-800" alt="MLBB">
+                <span class="text-xs font-bold text-white">Mobile Legends</span>
+                <span class="text-[10px] text-gray-400 mt-1">Coming Soon</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- ផ្នែក ORDER & PACKAGE PAGE (ទំព័រកញ្ចប់ពេជ្រតាមរូបភាព) -->
+    <main id="orderView" class="p-3 space-y-4 hidden">
+        <button onclick="goHome()" class="text-xs text-[#0fb896] font-bold flex items-center gap-1 mb-1">
+            <i class="fas fa-arrow-left"></i> ត្រឡប់ក្រោយវិញ
+        </button>
+
+        <!-- Game Banner Mini -->
+        <div class="w-full h-45 bg-gray-700 rounded-lg overflow-hidden relative shadow-lg">
+            <img src="c:\Users\mmorm\Downloads\Telegram Desktop\photo_2026-09-18_14-16-57.jpg" class="object-cover w-full h-full opacity-80" alt="Banner">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0fb896] to-transparent opacity-60"></div>
+            <div class="absolute bottom-2 left-2 text-white font-bold italic text-lg drop-shadow-lg" id="selectedGameTitle">FREE FIRE</div>
+        </div>
+
+        <!-- ផ្នែកបញ្ចូល User ID -->
+        <div class="space-y-1">
+            <h2 class="text-xs font-bold text-gray-300 uppercase">១. បញ្ចូលអត្តសញ្ញាណរបស់អ្នក</h2>
+            <div class="bg-card rounded-lg p-3 space-y-2">
+                <input type="text" id="userId" placeholder="វាយបញ្ចូល Player ID ទីនេះ..." class="w-full bg-[#1a1e29] border border-[#0fb896] rounded p-2.5 text-white text-sm outline-none">
+                <div class="flex justify-between items-center text-xs">
+                    <span class="text-[#0fb896]">ឆែកឈ្មោះអូតូ</span>
+                    <span class="text-gray-400">Status: <span class="italic text-gray-500">Ready</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ផ្នែក Coupon -->
+        <div class="space-y-1">
+            <h2 class="text-xs font-bold text-gray-300 uppercase">២. កូដបញ្ចុះតម្លៃ (COUPON)</h2>
+            <div class="bg-card rounded-lg p-3 flex gap-2">
+                <input type="text" placeholder="Enter Coupon Code" class="flex-1 bg-[#1a1e29] border border-[#0fb896] rounded p-2 text-white text-sm outline-none">
+                <button class="bg-[#0fb896] text-white font-bold px-4 py-2 rounded text-sm hover:bg-emerald-600 transition">APPLY</button>
+            </div>
+        </div>
+
+        <!-- ផ្នែកជ្រើសរើសកញ្ចប់ពេជ្រ -->
+        <div class="space-y-1">
+            <h2 class="text-xs font-bold text-gray-300 uppercase">៣. ជ្រើសរើសកញ្ចប់តម្លៃ</h2>
+            <div class="grid grid-cols-3 gap-2" id="package-grid">
+                <!-- Data Packages populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- ផ្នែក FOOTER & CHECKOUT BAR -->
+    <footer id="orderFooter" class="fixed bottom-0 left-0 w-full bg-[#161a29] border-t border-[#0fb896] p-3 flex flex-col gap-2 z-45 shadow-2xl hidden">
+        <div class="flex justify-between items-center text-xs">
+            <div class="flex items-center gap-2">
+                <input type="checkbox" id="terms" class="w-4 h-4 accent-[#0fb896]" checked>
+                <label for="terms" class="text-gray-300 text-[10px]">ខ្ញុំយល់ព្រមតាម <a href="#" class="text-[#0fb896] underline">លក្ខខណ្ឌ</a></label>
+            </div>
+            <div class="bg-[#0fb896] px-2 py-0.5 rounded text-[10px] font-bold text-white">KHQR</div>
+        </div>
+        <button onclick="openCheckoutModal()" class="w-full bg-card border border-[#0fb896] bg-gradient-to-r from-[#161a29] via-[#1e2738] to-[#161a29] text-white py-3 rounded-lg text-sm italic font-bold hover:bg-[#0fb896]/20 transition shadow">
+            ទិញឥឡូវនេះ: <span id="selectedPriceDisplay" class="text-[#0fb896]">0.45$</span>
+        </button>
+    </footer>
+
+    <!-- ផ្ទាំង POPUP QR CODE (KHQR PAYMENT) -->
+    <div id="qrModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4">
+        <div class="bg-[#161a29] border-2 border-[#0fb896] rounded-xl p-5 w-full max-w-xs text-center shadow-2xl space-y-4">
+            <h3 class="text-[#0fb896] font-bold text-lg">ស្កេនដើម្បីទូទាត់ប្រាក់ (KHQR)</h3>
+            
+            <div class="bg-white p-3 rounded-lg inline-block shadow">
+                <img src="c:\Users\mmorm\Downloads\qr.png" alt="KHQR Code" class="w-100 h-100 mx-auto object-contain">
+            </div>
+
+            <div class="text-xs text-gray-300 space-y-1">
+                <p>ទឹកប្រាក់ត្រូវបង់: <span id="modalPrice" class="text-[#0fb896] font-bold text-sm">0.45$</span></p>
+                <p class="text-gray-400">សូមបើក App ធនាគារដើម្បីស្កេនបង់ប្រាក់</p>
+            </div>
+
+            <button onclick="closeCheckoutModal()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded-lg text-sm transition shadow">
+                បិទផ្ទាំងនេះ (Close)
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // ទិន្នន័យកញ្ចប់តម្លៃ និងរូបភាពរៀងៗខ្លួនស្របតាមរូបភាពដែលបានផ្ញើមក
+        const packages = [
+
+    { name:"Weekly Lite", price:0.45, icon:"💳" },
+    { name:"Weekly Pass", price:1.69, icon:"💳" },
+    { name:"Monthly Pass", price:7.75, icon:"💳" },
+
+    { name:"Weekly LITE x3", price:1.40, icon:"💳" },
+    { name:"Weekly Lite x5", price:2.00, icon:"💳" },
+
+    { name:"Weekly Pass x3", price:4.89, icon:"💳" },
+    { name:"Weekly Pass x5", price:8.15, icon:"💳" },
+
+    { name:"Monthly Pass x3", price:24.00, icon:"💳" },
+    { name:"Monthly Pass x5", price:39.00, icon:"💳" },
+
+    { name:"2 In 1", price:9.49, icon:"🎁" },
+    { name:"3 In 1", price:9.89, icon:"🎁" },
+
+    { name:"Level Up 6", price:0.40, icon:"⬆️" },
+    { name:"Level Up 10", price:0.75, icon:"⬆️" },
+    { name:"Level Up 15", price:0.75, icon:"⬆️" },
+    { name:"Level Up 20", price:0.75, icon:"⬆️" },
+    { name:"Level Up 25", price:0.75, icon:"⬆️" },
+    { name:"Level Up 30", price:1.10, icon:"⬆️" },
+
+    { name:"25 DM", price:0.25, icon:"💎" },
+    { name:"100 DM", price:1.00, icon:"💎" },
+    { name:"310 DM", price:2.80, icon:"💎" },
+    { name:"520 DM", price:4.60, icon:"💎" },
+    { name:"1060 DM", price:9.00, icon:"💎" },
+    { name:"2180 DM", price:18.50, icon:"💎" },
+    { name:"5600 DM", price:44.89, icon:"💎" },
+    { name:"11500 DM", price:93.00, icon:"💎" }
+
+];
+
+        let currentSelectedPrice = "0.45"
+        const grid = document.getElementById('package-grid');
+        
+        // បង្កើតកាតកញ្ចប់តម្លៃដាក់ចូល Website
+        packages.forEach((pkg, index) => {
+            let activeClass = index === 0 ? "border-[#0fb896] border-[2px]" : "border-transparent hover:border-gray-500";
+            grid.innerHTML += `
+                <div class="bg-card rounded-lg p-2 flex flex-col items-center justify-center text-center cursor-pointer transition-all border relative min-h-[90px] ${activeClass}" onclick="selectPackage(this, '${pkg.price}')">
+                    <div class="absolute -top-2 bg-gradient-to-r from-blue-400 to-[#0fb896] text-white text-[9px] px-2 py-0.5 rounded-full flex items-center gap-1 shadow">
+                        <i class="fas fa-star text-[8px]"></i> Feature
+                    </div>
+                    <img src="${pkg.img}" class="w-6 h-6 mb-1 mt-2 object-contain" alt="${pkg.name}">
+                    <span class="text-[11px] font-bold w-full leading-tight text-gray-200">${pkg.name}</span>
+                    <span class="text-[#0fb896] text-xs font-bold mt-0.5">${pkg.price}</span>
+                </div>
+            `;
+        });
+
+        function openOrderPage(gameName) {
+            document.getElementById('homeView').classList.add('hidden');
+            document.getElementById('orderView').classList.remove('hidden');
+            document.getElementById('orderFooter').classList.remove('hidden');
+            document.getElementById('selectedGameTitle').innerText = gameName.toUpperCase();
+            window.scrollTo(0, 0);
+        }
+
+        function goHome() {
+            document.getElementById('orderView').classList.add('hidden');
+            document.getElementById('orderFooter').classList.add('hidden');
+            document.getElementById('homeView').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function selectPackage(element, price) {
+            let cards = document.querySelectorAll('#package-grid > div');
+            cards.forEach(card => {
+                card.classList.remove('border-[#0fb896]', 'border-[2px]');
+                card.classList.add('border-transparent');
+            });
+            element.classList.remove('border-transparent');
+            element.classList.add('border-[#0fb896]', 'border-[2px]');
+            
+            currentSelectedPrice = price;
+            document.getElementById('selectedPriceDisplay').innerText = price;
+        }
+
+        function openCheckoutModal() {
+            let userId = document.getElementById('userId').value.trim();
+            if(userId === "") {
+                alert("សូមបញ្ចូល Player ID របស់អ្នកជាមុនសិន!");
+                document.getElementById('userId').focus();
+                return;
+            }
+
+            document.getElementById('modalPrice').innerText = currentSelectedPrice;
+            let modal = document.getElementById('qrModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeCheckoutModal() {
+            let modal = document.getElementById('qrModal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
