@@ -1,1 +1,1063 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>AXEL STORE - Free Fire Top Up</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        @import url(
+            'https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700&display=swap'
+        );
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hanuman', sans-serif;
+            background-color: #1a1e29;
+            color: white;
+        }
+
+        .bg-header {
+            background-color: #0fb896;
+        }
+
+        .bg-card {
+            background-color: #161a29;
+            border: 1px solid #2a3143;
+        }
+
+        .border-active {
+            border-color: #0fb896 !important;
+            box-shadow: 0 0 8px rgba(15,184,150,0.4);
+        }
+
+        .game-card {
+            transition: 0.2s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-3px);
+            border-color: #0fb896;
+        }
+
+        .package-card {
+            transition: 0.15s;
+        }
+
+        .package-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .modal {
+            backdrop-filter: blur(5px);
+        }
+
+    </style>
+</head>
+
+
+<body class="pb-28">
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header
+    class="bg-header px-4 py-3 flex justify-between items-center sticky top-0 z-50 shadow-md"
+>
+
+    <h1
+        class="text-2xl font-black italic tracking-widest drop-shadow-md"
+    >
+        AXEL STORE
+    </h1>
+
+
+    <div class="flex items-center gap-2">
+
+        <button
+            onclick="goHome()"
+            class="bg-white text-gray-800 w-8 h-8 rounded flex items-center justify-center"
+        >
+            <i class="fas fa-home"></i>
+        </button>
+
+
+        <button
+            onclick="showLoginMessage()"
+            class="bg-white text-gray-800 px-3 py-1 font-bold rounded text-sm"
+        >
+            LOGIN
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     HOME PAGE
+========================================================= -->
+
+<main
+    id="homeView"
+    class="p-3 space-y-4"
+>
+
+
+    <!-- BANNER -->
+
+    <div
+        class="w-full h-100 bg-gray-700 rounded-lg overflow-hidden relative shadow-lg"
+    >
+
+        <img
+            src="c:\Users\mmorm\Downloads\Telegram Desktop\photo_2026-09-18_14-16-57.jpg"
+            class="object-cover w-full h-full opacity-80"
+            alt="AXEL STORE"
+            onerror="this.style.display='none'"
+        >
+
+        <div
+            class="absolute inset-0 bg-gradient-to-r from-[#0fb896] to-transparent opacity-60"
+        ></div>
+
+        <div
+            class="absolute bottom-3 left-3 text-white font-bold italic text-xl drop-shadow-lg"
+        >
+            WELCOME TO AXEL STORE
+        </div>
+
+    </div>
+
+
+
+    <h2 class="text-sm font-bold text-gray-300">
+        🎮 ជ្រើសរើសហ្គេមសម្រាប់ TOPUP
+    </h2>
+
+
+
+    <!-- GAME GRID -->
+
+    <div class="grid grid-cols-2 gap-3">
+
+
+        <!-- FREE FIRE -->
+
+        <div
+            onclick="openOrderPage('Free Fire')"
+            class="game-card bg-card rounded-xl p-3 flex flex-col items-center text-center cursor-pointer"
+        >
+
+            <img
+                src="c:\Users\mmorm\Downloads\download.jpeg"
+                class="w-24 h-24 rounded-lg object-cover mb-2 shadow"
+                alt="Free Fire"
+                onerror="this.style.display='none'"
+            >
+
+            <span class="text-xs font-bold">
+                Free Fire
+            </span>
+
+            <span
+                class="text-[10px] text-[#0fb896] mt-1 font-semibold"
+            >
+                Automatic 24/7
+            </span>
+
+        </div>
+
+
+
+        <!-- MOBILE LEGENDS -->
+
+        <div
+            onclick="comingSoon('Mobile Legends')"
+            class="game-card bg-card rounded-xl p-3 flex flex-col items-center text-center cursor-pointer opacity-70"
+        >
+
+            <div
+                class="w-24 h-24 rounded-lg mb-2 bg-gray-800 flex items-center justify-center text-4xl"
+            >
+                ⚔️
+            </div>
+
+            <span class="text-xs font-bold">
+                Mobile Legends
+            </span>
+
+            <span class="text-[10px] text-gray-400 mt-1">
+                Coming Soon
+            </span>
+
+        </div>
+       
+        <!-- ROBLOX -->
+
+        <div
+            onclick="comingSoon('Roblox')"
+            class="game-card bg-card rounded-xl p-3 flex flex-col items-center text-center cursor-pointer opacity-70"
+        >
+
+            <div
+                class="w-24 h-24 rounded-lg mb-2 bg-gray-800 flex items-center justify-center text-4xl"
+            >
+                🧱
+            </div>
+
+            <span class="text-xs font-bold">
+                Roblox
+            </span>
+
+            <span class="text-[10px] text-gray-400 mt-1">
+                Coming Soon
+            </span>
+
+        </div>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     ORDER PAGE
+========================================================= -->
+
+<main
+    id="orderView"
+    class="p-3 space-y-4 hidden"
+>
+
+
+    <!-- BACK -->
+
+    <button
+        onclick="goHome()"
+        class="text-xs text-[#0fb896] font-bold flex items-center gap-1"
+    >
+
+        <i class="fas fa-arrow-left"></i>
+
+        ត្រឡប់ក្រោយ
+
+    </button>
+
+
+
+    <!-- GAME BANNER -->
+
+    <div
+        class="w-full h-100 bg-gray-700 rounded-lg overflow-hidden relative shadow-lg"
+    >
+
+        <img
+            src="c:\Users\mmorm\Downloads\Telegram Desktop\photo_2026-09-18_14-16-57.jpg"
+            class="object-cover w-full h-full opacity-80"
+            alt="Free Fire"
+            onerror="this.style.display='none'"
+        >
+
+        <div
+            class="absolute inset-0 bg-gradient-to-r from-[#0fb896] to-transparent opacity-60"
+        ></div>
+
+        <div
+            id="selectedGameTitle"
+            class="absolute bottom-2 left-2 text-white font-bold italic text-lg drop-shadow-lg"
+        >
+            FREE FIRE
+        </div>
+
+    </div>
+
+
+
+    <!-- PLAYER ID -->
+
+    <div class="space-y-1">
+
+        <h2 class="text-xs font-bold text-gray-300">
+            ១. បញ្ចូល PLAYER ID
+        </h2>
+
+
+        <div class="bg-card rounded-lg p-3 space-y-2">
+
+            <input
+                type="text"
+                id="userId"
+                inputmode="numeric"
+                maxlength="20"
+                placeholder="វាយបញ្ចូល Player ID ទីនេះ..."
+                class="w-full bg-[#1a1e29] border border-[#0fb896] rounded p-2.5 text-white text-sm outline-none"
+            >
+
+
+            <div class="flex justify-between text-xs">
+
+                <span class="text-[#0fb896]">
+                    Player ID
+                </span>
+
+                <span class="text-gray-400">
+                    Status:
+                    <span class="text-gray-500">
+                        Ready
+                    </span>
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- COUPON -->
+
+    <div class="space-y-1">
+
+        <h2 class="text-xs font-bold text-gray-300">
+            ២. កូដបញ្ចុះតម្លៃ
+        </h2>
+
+
+        <div class="bg-card rounded-lg p-3 flex gap-2">
+
+            <input
+                type="text"
+                id="coupon"
+                placeholder="Enter Coupon Code"
+                class="flex-1 bg-[#1a1e29] border border-[#0fb896] rounded p-2 text-white text-sm outline-none"
+            >
+
+
+            <button
+                onclick="applyCoupon()"
+                class="bg-[#0fb896] text-white font-bold px-4 py-2 rounded text-sm"
+            >
+                APPLY
+            </button>
+
+        </div>
+
+
+        <p
+            id="couponStatus"
+            class="text-[10px] text-gray-400"
+        ></p>
+
+    </div>
+
+
+
+    <!-- PACKAGES -->
+
+    <div class="space-y-1">
+
+        <h2 class="text-xs font-bold text-gray-300">
+            ៣. ជ្រើសរើសកញ្ចប់
+        </h2>
+
+
+        <div
+            id="package-grid"
+            class="grid grid-cols-3 gap-2"
+        ></div>
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================================================
+     CHECKOUT BAR
+========================================================= -->
+
+<footer
+    id="orderFooter"
+    class="fixed bottom-0 left-0 w-full bg-[#161a29] border-t border-[#0fb896] p-3 flex flex-col gap-2 z-40 shadow-2xl hidden"
+>
+
+
+    <div class="flex justify-between items-center text-xs">
+
+        <label
+            class="text-gray-300 text-[10px]"
+        >
+
+            <input
+                type="checkbox"
+                id="terms"
+                checked
+                class="w-4 h-4 align-middle accent-[#0fb896]"
+            >
+
+            ខ្ញុំយល់ព្រមតាមលក្ខខណ្ឌ
+
+        </label>
+
+
+        <div
+            class="bg-[#0fb896] px-2 py-0.5 rounded text-[10px] font-bold"
+        >
+            KHQR
+        </div>
+
+    </div>
+
+
+
+    <button
+        id="buyButton"
+        onclick="openCheckoutModal()"
+        class="w-full bg-card border border-[#0fb896] text-white py-3 rounded-lg text-sm font-bold shadow"
+    >
+
+        ទិញឥឡូវនេះ:
+
+        <span
+            id="selectedPriceDisplay"
+            class="text-[#0fb896]"
+        >
+            $0.13
+        </span>
+
+    </button>
+
+</footer>
+
+
+
+<!-- =========================================================
+     QR MODAL
+========================================================= -->
+
+<!-- QR PAYMENT MODAL -->
+ <div id="qrModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 p-4">
+        <div class="bg-[#161a29] border-2 border-[#0fb38a] rounded-xl p-5 w-full max-w-xs text-center shadow-2xl space-y-4">
+            <h3 class="text-[#0fb38a] font-bold text-lg">ស្កេនដើម្បីទូទាត់ប្រាក់ (KHQR)</h3>
+            
+            <div class="bg-white p-3 rounded-lg inline-block">
+                <!-- ទីតាំងដាក់រូប QR Code របស់ប្រូ -->
+                <img src="qr.png" alt="KHQR Code" class="w-44 h-44 mx-auto object-contain">
+            </div>
+
+            <div class="text-xs text-gray-300 space-y-1">
+                <p>តម្លៃត្រូវបង់: <span id="modalPrice" class="text-[#0fb38a] font-bold text-sm">0.45$</span></p>
+                <p class="text-gray-400">សូមប្រើប្រាស់កម្មវិធីធនាគារដើម្បីស្កេន</p>
+            </div>
+
+            <button onclick="closeCheckoutModal()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded text-sm transition">
+                បិទវិញ (Close)
+            </button>
+        </div>
+    </div>
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* ============================
+   PACKAGE DATA
+============================ */
+
+const packages = [
+
+    { name:"Weekly Lite", price:0.45, icon:"💳" },
+    { name:"Weekly Pass", price:1.69, icon:"💳" },
+    { name:"Monthly Pass", price:7.79, icon:"💳" },
+
+    { name:"Weekly LITE x3", price:1.40, icon:"💳" },
+    { name:"Weekly Lite x5", price:2.00, icon:"💳" },
+
+    { name:"Weekly Pass x3", price:4.89, icon:"💳" },
+    { name:"Weekly Pass x5", price:8.15, icon:"💳" },
+
+    { name:"Monthly Pass x3", price:24.00, icon:"💳" },
+    { name:"Monthly Pass x5", price:39.00, icon:"💳" },
+
+    { name:"2 In 1", price:9.49, icon:"🎁" },
+    { name:"3 In 1", price:9.89, icon:"🎁" },
+
+    { name:"Level Up 6", price:0.40, icon:"⬆️" },
+    { name:"Level Up 10", price:0.75, icon:"⬆️" },
+    { name:"Level Up 15", price:0.75, icon:"⬆️" },
+    { name:"Level Up 20", price:0.75, icon:"⬆️" },
+    { name:"Level Up 25", price:0.75, icon:"⬆️" },
+    { name:"Level Up 30", price:1.10, icon:"⬆️" },
+
+    { name:"25 DM", price:0.25, icon:"💎" },
+    { name:"100 DM", price:1.00, icon:"💎" },
+    { name:"310 DM", price:2.80, icon:"💎" },
+    { name:"520 DM", price:4.60, icon:"💎" },
+    { name:"1060 DM", price:9.00, icon:"💎" },
+    { name:"2180 DM", price:18.50, icon:"💎" },
+    { name:"5600 DM", price:44.89, icon:"💎" },
+    { name:"11500 DM", price:93.00, icon:"💎" }
+
+];
+
+
+
+/* ============================
+   VARIABLES
+============================ */
+
+let selectedPackage = packages[0];
+
+let currentSelectedPrice =
+    selectedPackage.price;
+
+let currentGame = "Free Fire";
+
+let discount = 0;
+
+
+
+/* ============================
+   CREATE PACKAGE CARDS
+============================ */
+
+const grid =
+    document.getElementById("package-grid");
+
+
+packages.forEach((pkg, index) => {
+
+    const card =
+        document.createElement("div");
+
+
+    card.className =
+        "package-card bg-card rounded-lg p-2 flex flex-col items-center justify-center text-center cursor-pointer border min-h-[100px]";
+
+
+    card.innerHTML = `
+
+        <div class="text-2xl mb-1">
+            ${pkg.icon}
+        </div>
+
+        <span class="text-[10px] font-bold leading-tight">
+            ${pkg.name}
+        </span>
+
+        <span class="text-[#0fb896] text-xs font-bold mt-1">
+            $${pkg.price.toFixed(2)}
+        </span>
+
+    `;
+
+
+    card.onclick = function() {
+
+        selectPackage(card, pkg);
+
+    };
+
+
+    grid.appendChild(card);
+
+
+    if(index === 0) {
+
+        selectPackage(card, pkg);
+
+    }
+
+});
+
+
+
+/* ============================
+   SELECT PACKAGE
+============================ */
+
+function selectPackage(card, pkg) {
+
+    document
+        .querySelectorAll("#package-grid > div")
+        .forEach(item => {
+
+            item.classList.remove(
+                "border-active"
+            );
+
+        });
+
+
+    card.classList.add(
+        "border-active"
+    );
+
+
+    selectedPackage = pkg;
+
+
+    updatePrice();
+
+}
+
+
+
+/* ============================
+   UPDATE PRICE
+============================ */
+
+function updatePrice() {
+
+    currentSelectedPrice =
+        Math.max(
+            0,
+            selectedPackage.price - discount
+        );
+
+
+    document
+        .getElementById("selectedPriceDisplay")
+        .innerText =
+        "$" + currentSelectedPrice.toFixed(2);
+
+}
+
+
+
+/* ============================
+   COUPON
+============================ */
+
+function applyCoupon() {
+
+    const input =
+        document.getElementById("coupon");
+
+    const status =
+        document.getElementById("couponStatus");
+
+
+    const code =
+        input.value.trim().toUpperCase();
+
+
+    /*
+       Example coupon:
+       AXEL10 = 10% OFF
+    */
+
+    if(code === "AXEL10") {
+
+        discount =
+            +(selectedPackage.price * 0.10)
+            .toFixed(2);
+        status.innerText =
+            "✅ Coupon applied: 10% OFF";
+
+        status.className =
+            "text-[10px] text-[#0fb896]";
+
+    }
+
+    else if(code === "") {
+
+        discount = 0;
+
+        status.innerText = "";
+
+    }
+
+    else {
+
+        discount = 0;
+
+        status.innerText =
+            "❌ Coupon មិនត្រឹមត្រូវ";
+
+        status.className =
+            "text-[10px] text-red-400";
+
+    }
+
+
+    updatePrice();
+
+}
+
+
+
+/* ============================
+   OPEN ORDER PAGE
+============================ */
+
+function openOrderPage(gameName) {
+
+    currentGame = gameName;
+
+
+    document
+        .getElementById("homeView")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("orderView")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("orderFooter")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("selectedGameTitle")
+        .innerText =
+        gameName.toUpperCase();
+
+
+    window.scrollTo(0,0);
+
+}
+
+
+
+/* ============================
+   HOME
+============================ */
+
+function goHome() {
+
+    document
+        .getElementById("orderView")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("orderFooter")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("homeView")
+        .classList.remove("hidden");
+
+
+    window.scrollTo(0,0);
+
+}
+
+
+
+/* ============================
+   COMING SOON
+============================ */
+
+function comingSoon(game) {
+
+    alert(
+        game +
+        " នឹងដាក់ដំណើរការឆាប់ៗខាងមុខ! 🔒"
+    );
+
+}
+
+
+
+/* ============================
+   LOGIN
+============================ */
+
+function showLoginMessage() {
+
+    alert(
+        "Login system នឹងមានឆាប់ៗនេះ!"
+    );
+
+}
+
+
+
+/* =========================================================
+   SEND ORDER TO SERVER
+========================================================= */
+
+async function openCheckoutModal() {
+
+    const userId =
+        document
+        .getElementById("userId")
+        .value
+        .trim();
+
+
+    const coupon =
+        document
+        .getElementById("coupon")
+        .value
+        .trim();
+
+
+    const terms =
+        document
+        .getElementById("terms")
+        .checked;
+
+
+    /* PLAYER ID */
+
+    if(userId === "") {
+
+        alert(
+            "សូមបញ្ចូល Player ID របស់អ្នកជាមុនសិន!"
+        );
+
+        document
+            .getElementById("userId")
+            .focus();
+
+        return;
+
+    }
+
+
+    /* ONLY NUMBERS */
+
+    if(!/^\d+$/.test(userId)) {
+
+        alert(
+            "Player ID ត្រូវមានតែលេខប៉ុណ្ណោះ!"
+        );
+
+        return;
+
+    }
+
+
+    /* TERMS */
+
+    if(!terms) {
+
+        alert(
+            "សូមយល់ព្រមតាមលក្ខខណ្ឌជាមុនសិន!"
+        );
+
+        return;
+
+    }
+
+
+    const button =
+        document.getElementById("buyButton");
+
+
+    const oldText =
+        button.innerHTML;
+
+
+    button.disabled = true;
+
+    button.innerHTML =
+        "⏳ កំពុងផ្ញើ Order...";
+
+
+    try {
+
+
+        /*
+           Website sends order to:
+
+           POST /api/order
+
+           server.js receives it
+           and sends it to Telegram.
+        */
+
+        const response =
+            await fetch(
+                "/api/order",
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        game:
+                            currentGame,
+
+                        userId:
+                            userId,
+
+                        packageName:
+                            selectedPackage.name,
+
+                        price:
+                            currentSelectedPrice
+                                .toFixed(2),
+
+                        coupon:
+                            coupon || "NONE",
+
+      
+                        payment:
+                            "KHQR"
+
+                    })
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if(
+            !response.ok ||
+            !result.success
+        ) {
+
+            throw new Error(
+                result.message ||
+                "Order failed"
+            );
+
+        }
+
+
+        /* SUCCESS */
+
+        document
+            .getElementById("modalPrice")
+            .innerText =
+            "$" +
+            currentSelectedPrice.toFixed(2);
+
+
+        const modal =
+            document.getElementById(
+                "qrModal"
+            );
+
+
+        modal.classList.remove(
+            "hidden"
+        );
+
+
+        modal.classList.add(
+            "flex"
+        );
+
+
+        alert(
+            "✅ Order បានផ្ញើទៅ Telegram Admin ហើយ!"
+        );
+
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+
+        alert(
+            "❌ ផ្ញើ Order មិនបាន!\n\n" +
+            "សូមពិនិត្យថា server.js កំពុងដំណើរការ " +
+            "និង Telegram Bot បានកំណត់រួច។"
+        );
+
+    }
+
+
+    finally {
+
+        button.disabled = false;
+
+        button.innerHTML =
+            oldText;
+
+    }
+
+}
+
+
+
+/* ============================
+   CLOSE QR
+============================ */
+
+function closeCheckoutModal() {
+
+    const modal =
+        document.getElementById(
+            "qrModal"
+        );
+
+
+    modal.classList.remove(
+        "flex"
+    );
+
+
+    modal.classList.add(
+        "hidden"
+    );
+
+}
+
+
+
+/* ============================
+   CLICK OUTSIDE QR
+============================ */
+
+document
+    .getElementById("qrModal")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if(
+                event.target === this
+            ) {
+
+                closeCheckoutModal();
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
